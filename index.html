@@ -1,0 +1,36 @@
+<!-- 3. Guess what letter I'm thinking of
+
+4. Wins: (# of times the user has guessed the letter correctly)
+
+5. Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
+
+6. Guesses Left: (# of guesses left. This will update)
+
+7. Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)
+
+8. When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
+
+9. When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Psychic Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="header">
+        <h1>The Psychic Game</h1>
+    </div>
+    <div class="body">
+        <p>Guess what letter I am thinking of</p>
+        <p id="wins">Wins: </p>
+        <p id="losses">Losses: </p>
+        <p id="guesses-left">Guesses Left: </p>
+        <p id="guesses-so-far">Your guesses so far: </p>
+    </div>
+<script src="/assets/javascript/game.js"></script>
+</body>
+</html>
