@@ -67,12 +67,29 @@ updateLetterToGuess();[]
 // Chapter 4: Event Handling:
     // this is the function that captures the keyboard press down
 document.onkeydown = function(event) {
-    // Decrease the guesses variable by 1 for every time the user pushes down on their keyboard
-    guessesLeft--;
-
+    
     // lowercase every user input
     var letter = String.fromCharCode(event.which).toLowerCase();
+
+    // captures the event when the user presses on the keyboard
+    guessLetters = event.key;
+
+    // Compare user guess & computer generated letter
+    if (guessLetters === updateLetterToGuess) {
+        alert("Congrats! You've guessed correctly!");
+        wins++;
+    }
+    else {
+    // Decrease the guesses variable by 1 for every time the user pushes down on their keyboard
+    guessesLeft--;
+    }
+    if (guessesLeft === 0) {
+        loses--;
+    } 
     
-    // Call the variable that prints on the browser to reveal the user's guess
-    updateGuessesSoFar;
+}
+        
+    // print user's guess into empty array on page
+    updateGuessesSoFar.innerHTML;
+
 }
