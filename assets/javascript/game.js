@@ -26,7 +26,8 @@ Variables needed:
 */
 
 // Chapter 1: Variable Initialization
-var letters = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z];
+var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+'m', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var guessLetters = [];
 var letterToGuess = null;
 var guessesLeft = 9;
@@ -75,21 +76,30 @@ document.onkeydown = function(event) {
     guessLetters = event.key;
 
     // Compare user guess & computer generated letter
-    if (guessLetters === updateLetterToGuess) {
+
+    //User guesses the computer's letter correctly!
+    if (guessLetters === letterToGuess) {
         alert("Congrats! You've guessed correctly!");
         wins++;
     }
     else {
-    // Decrease the guesses variable by 1 for every time the user pushes down on their keyboard
+    // Decrease the guesses variable by 1 for guessing incorrectly
     guessesLeft--;
     }
     if (guessesLeft === 0) {
-        loses--;
+        loses++;
     } 
-    
-}
-        
-    // print user's guess into empty array on page
-    updateGuessesSoFar.innerHTML;
+    //end of if/else statements regarding possible outcomes
 
+    // Print values of variables onto page
+    
+    //wins
+    document.querySelector('#wins').innerHTML = "Wins: " + wins;
+    document.querySelector('#losses').innerHTML = "Losses: " + losses;
+    
+
+    //losses
+    losses.innerHTML;
+
+    //
 }
