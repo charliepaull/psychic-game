@@ -43,7 +43,7 @@ var losses = 0;
 
     // grabbed guessesLeft variable to use for event function
 var updateGuessesLeft = function() {
-    document.querySelector("#guesses-left").innerHTML = guessesLeft;
+    document.querySelector("#guesses-left").innerHTML = "Guesses Left: " + guessesLeft;
 }
 
 var updateComputerLetter = function() {
@@ -51,30 +51,38 @@ var updateComputerLetter = function() {
 }
 
 var updateGuessesSoFar = function() {
-    document.querySelector("#guesses-so-far") = guessLetters.join(", ");
+    document.querySelector("#guesses-so-far").innerHTML = "Guesses so far: " + guessLetters.join(", ");
 }
 
 var reset = function() {
     guessesLeft = 9;
     guessLetters = [];
+    updateGuessesSoFar = " ";
     updateGuessesLeft();
     computerLetter();
 }
 
-// Chapter 3: onPage Load
-updateGuessesLeft();
-updateComputerLetter();
-updateGuessesSoFar();
+// // Chapter 3: onPage Load
+// updateGuessesLeft();
+// updateComputerLetter();
+// updateGuessesSoFar();
 
 // Chapter 4: Event Handling:
     // this is the function that captures the keyboard press down
+
+reset();
 document.onkeydown = function(event) {
     
     // lowercase every user input
-    var letter = String.fromCharCode(event.which).toLowerCase();
+    letter = String.fromCharCode(event.which).toLowerCase();
+
+    for (var i = 0; i < letter.length; i++) {
+        letter[i] = guessLetters[i]
+    }
 
     // captures the event when the user presses on the keyboard
     guessLetters = event.key;
+    // **.push() below currently isn't working and is breaking my code**
     // letter.push(guessLetters);
 
     // Compare user guess & computer generated letter
@@ -111,8 +119,9 @@ document.onkeydown = function(event) {
 
 /*Current Problems:
     guessesLeft isn't resetting after 9.
-    guessesLeft isn't triggering a loss after 9 attempts. (Do I want an alert here?)
+    guessesSoFar has disappeared off page.
     guessesSoFar isn't displaying user's current guesses.
+        should I be using a for loop that loops & prints each item onto the page?
     Reset is not working.
     game isn't randomizing a new number during a reset.
     all keys on keyboard are counting towards guessing.
