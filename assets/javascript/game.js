@@ -50,7 +50,7 @@ var updateLetterToGuess = function() {
 }
 
 var updateGuessesSoFar = function() {
-    document.querySelector("#guesses-so-far").innerHTML = guessLetters.join(", ");
+    document.querySelector("#guesses-so-far").textContent = guessLetters.join(", ");
 }
 
 var reset = function() {
@@ -88,18 +88,29 @@ document.onkeydown = function(event) {
     }
     if (guessesLeft === 0) {
         loses++;
-    } 
+    }
+
+    reset;
     //end of if/else statements regarding possible outcomes
 
     // Print values of variables onto page
     
     //wins
     document.querySelector('#wins').innerHTML = "Wins: " + wins;
-    document.querySelector('#losses').innerHTML = "Losses: " + losses;
-    
-
     //losses
-    losses.innerHTML;
-
+    document.querySelector('#losses').innerHTML = "Losses: " + losses;
+    // guessesLeft
+    document.querySelector('#guesses-left').innerHTML = "Guesses Left: " + guessesLeft;
+    //guessLetters
+    document.querySelector('#guesses-so-far').innerHTML = "Guesses so far: " + updateGuessesSoFar;
     //
 }
+
+/*Current Problems:
+    guessesLeft isn't resetting after 9.
+    guessesLeft isn't triggering a loss after 9 attempts. (Do I want an alert here?)
+    guessesSoFar isn't displaying user's current guesses.
+    Reset is not working.
+    game isn't randomizing a new number during a reset.
+    all keys on keyboard are counting towards guessing.
+*/
