@@ -29,7 +29,7 @@ Variables needed:
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var guessLetters = [];
-var letterToGuess = null;
+var computerLetter = null;
 var guessesLeft = 9;
 
 var wins = 0;
@@ -41,29 +41,30 @@ var losses = 0;
     // updates guessesLeft
     // update guessesSoFar
 
+    // grabbed guessesLeft variable to use for event function
 var updateGuessesLeft = function() {
     document.querySelector("#guesses-left").innerHTML = guessesLeft;
 }
 
-var updateLetterToGuess = function() {
-    letterToGuess = letters[Math.floor(Math.random() * letters.length)];
+var updateComputerLetter = function() {
+    computerLetter = letters[Math.floor(Math.random() * letters.length)];
 }
 
 var updateGuessesSoFar = function() {
-    document.querySelector("#guesses-so-far").textContent = guessLetters.join(", ");
+    document.querySelector("#guesses-so-far") = guessLetters.join(", ");
 }
 
 var reset = function() {
     guessesLeft = 9;
     guessLetters = [];
     updateGuessesLeft();
-    updateLetterToGuess();
-    updateGuessesSoFar();
+    computerLetter();
 }
 
 // Chapter 3: onPage Load
 updateGuessesLeft();
-updateLetterToGuess();[]
+updateComputerLetter();
+updateGuessesSoFar();
 
 // Chapter 4: Event Handling:
     // this is the function that captures the keyboard press down
@@ -74,23 +75,25 @@ document.onkeydown = function(event) {
 
     // captures the event when the user presses on the keyboard
     guessLetters = event.key;
+    // letter.push(guessLetters);
 
     // Compare user guess & computer generated letter
 
     //User guesses the computer's letter correctly!
-    if (guessLetters === letterToGuess) {
+    if (guessLetters === computerLetter) {
         alert("Congrats! You've guessed correctly!");
         wins++;
+        reset;
     }
     else {
     // Decrease the guesses variable by 1 for guessing incorrectly
     guessesLeft--;
+    reset;  
     }
     if (guessesLeft === 0) {
-        loses++;
+        losses++;
+        reset;
     }
-
-    reset;
     //end of if/else statements regarding possible outcomes
 
     // Print values of variables onto page
@@ -102,7 +105,7 @@ document.onkeydown = function(event) {
     // guessesLeft
     document.querySelector('#guesses-left').innerHTML = "Guesses Left: " + guessesLeft;
     //guessLetters
-    document.querySelector('#guesses-so-far').innerHTML = "Guesses so far: " + updateGuessesSoFar;
+    document.querySelector('#guesses-so-far') = "Guesses so far: " + updateGuessesSoFar;
     //
 }
 
