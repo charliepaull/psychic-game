@@ -46,9 +46,8 @@ var updateGuessesLeft = function() {
     document.querySelector("#guesses-left").innerHTML = "Guesses Left: " + guessesLeft;
 }
 
-var updateComputerLetter = function() {
-    computerLetter = letters[Math.floor(Math.random() * letters.length)];
-}
+var up computerLetter = letters[Math.floor(Math.random() * letters.length)];
+
 
 var updateGuessesSoFar = function() {
     document.querySelector("#guesses-so-far").innerHTML = "Guesses so far: " + guessLetters.join(", ");
@@ -59,21 +58,22 @@ var reset = function() {
     guessLetters = [];
     updateGuessesSoFar = " ";
     updateGuessesLeft();
-    computerLetter();
+    updateComputerLetter();
 }
 
 // // Chapter 3: onPage Load
-// updateGuessesLeft();
-// updateComputerLetter();
-// updateGuessesSoFar();
+updateGuessesLeft();
+updateComputerLetter();
+updateGuessesSoFar();
 
 // Chapter 4: Event Handling:
     // this is the function that captures the keyboard press down
 
-// reset();
+reset();
 
 document.onkeydown = function(event) {
-    
+
+    guessesLeft--; 
     // lowercase every user input
     letter = String.fromCharCode(event.which).toLowerCase();
 
@@ -81,7 +81,6 @@ document.onkeydown = function(event) {
     guessLetters = event.key;
 
 
-    for (var i = 0; i < letter.length; i++) {
         letter[i] = guessLetters[i]
     }
 
@@ -97,13 +96,13 @@ document.onkeydown = function(event) {
         reset;
     }
     else {
-    // Decrease the guesses variable by 1 for guessing incorrectly
-    guessesLeft--;
-    reset;  
+    // Decrease the guesses variable by 1 for guessing incorrectly 
     }
+    
     if (guessesLeft === 0) {
         losses++;
         reset;
+        guessesLeft = 9;
     }
     //end of if/else statements regarding possible outcomes
 
@@ -113,7 +112,6 @@ document.onkeydown = function(event) {
     document.querySelector('#wins').innerHTML = "Wins: " + wins;
     //losses
     document.querySelector('#losses').innerHTML = "Losses: " + losses;
-}
 
 /*Current Problems:
     guessesLeft isn't resetting after 9.
