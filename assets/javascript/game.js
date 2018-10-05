@@ -70,18 +70,21 @@ var reset = function() {
 // Chapter 4: Event Handling:
     // this is the function that captures the keyboard press down
 
-reset();
+// reset();
+
 document.onkeydown = function(event) {
     
     // lowercase every user input
     letter = String.fromCharCode(event.which).toLowerCase();
 
+    // captures the event when the user presses on the keyboard
+    guessLetters = event.key;
+
+
     for (var i = 0; i < letter.length; i++) {
         letter[i] = guessLetters[i]
     }
 
-    // captures the event when the user presses on the keyboard
-    guessLetters = event.key;
     // **.push() below currently isn't working and is breaking my code**
     // letter.push(guessLetters);
 
@@ -110,11 +113,6 @@ document.onkeydown = function(event) {
     document.querySelector('#wins').innerHTML = "Wins: " + wins;
     //losses
     document.querySelector('#losses').innerHTML = "Losses: " + losses;
-    // guessesLeft
-    document.querySelector('#guesses-left').innerHTML = "Guesses Left: " + guessesLeft;
-    //guessLetters
-    document.querySelector('#guesses-so-far') = "Guesses so far: " + updateGuessesSoFar;
-    //
 }
 
 /*Current Problems:
