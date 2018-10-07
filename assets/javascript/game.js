@@ -110,13 +110,3 @@ document.onkeydown = function(event) {
     
     //losses
    
-    
-
-// Current Problems:
-//     guessesLeft isn't resetting after 9.
-//     guessesSoFar has disappeared off page.
-//     guessesSoFar isn't displaying user's current guesses.
-//         should I be using a for loop that loops & prints each item onto the page?
-//     Reset is not working.
-//     game isn't randomizing a new number during a reset.
-//     all keys on keyboard are counting towards guessing.

@@ -1,7 +1,7 @@
 # psychic-game
 easier hw3 - psychic game
 
-<!-- 
+
 Instructions:
 how does this game work?
     1. the computer chooses a letter randomly from the alphabet.
@@ -27,5 +27,3 @@ Variables needed:
     3. wins - user guesses the letter correctly
     4. losses - user runs out of guesses
     5. currentGuesses - current guesses for using during this round
-*/
- -->
